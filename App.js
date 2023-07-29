@@ -1,3 +1,4 @@
+import * as React from "react";
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
 import Card from "./Card";
@@ -5,10 +6,12 @@ import Card from "./Card";
 const cards = ["😃", "🚀", "🌈", "🐶", "🍕", "🐬"];
 
 export default function App() {
+  const [board, setBoard] = React.useState(() => shuffle([...cards, ...cards]));
+
   return (
     <View style={styles.container}>
       <Text style={styles.text}>Memo</Text>
-      {cards.map((card, index) => {
+      {board.map((card, index) => {
         return <Card key={index}>{card}</Card>;
       })}
       <StatusBar style="light" />
@@ -30,3 +33,11 @@ const styles = StyleSheet.create({
     fontWeight: "900",
   },
 });
+
+function shuffle(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const randomIndex = Math.floor(Math.random() * (i + 1));
+    [array[i], array[randomIndex]] = [array[randomIndex], array[i]];
+  }
+  return array;
+}
