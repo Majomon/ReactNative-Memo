@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "memo",
+    "name": "Memo",
     "slug": "memo",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -21,10 +21,17 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.anonymous.memo"
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "0e125ffc-d963-4369-914f-6f60d3182d10"
+      }
+    },
+    "owner": "majomon"
   }
 }
